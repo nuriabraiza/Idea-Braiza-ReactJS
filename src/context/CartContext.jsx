@@ -61,10 +61,6 @@ export const CartProvider = ({ children }) => {
     const isId = cart.some((i) => i.id === item.id);
     const isQty = cart.some((i) => i.id === item.id && i.qty === item.qty);
 
-    // id = true -> qty=true   : true
-    // id = false -> qty=false  : false
-    // id = true -> qty=false  : false
-
     if (!(isId && isQty)) {
       const needsUpdate = isId ? "differentQty" : "differentItems";
       return needsUpdate;

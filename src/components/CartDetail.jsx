@@ -4,8 +4,8 @@ import "./styles/cart.css";
 import ItemCount from "./ItemCount";
 
 function CartDetail({ item }) {
-  const [removeBox, setRemoveBox] = useState(false);
-  const { editItem, removeItem } = useCart();
+  const [remove, setRemoveBox] = useState(false);
+  const { editItem, itemRemove } = useCart();
 
   function addToCartHandler(qtyToAdd) {
     const info = {

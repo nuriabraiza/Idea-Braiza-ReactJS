@@ -4,13 +4,13 @@ import cart from "../img/cart.png";
 import "./styles/cartWidget.css";
 
 function CartWidget() {
-  const { totalItems } = useCart();
+  const { total } = useCart();
 
   return (
     <NavLink to="/cart">
       <div className="cartwidget">
         <img src={cart} alt="Carrito" />
-        {totalItems > 0 && <p className="cartQty">{totalItems}</p>}
+        {total > 0 && <p className="cartQty">{total}</p>}
       </div>
     </NavLink>
   );

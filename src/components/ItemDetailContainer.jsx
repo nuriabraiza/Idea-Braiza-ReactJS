@@ -24,6 +24,6 @@ const ItemDetailContainer = () => {
     });
   }, [id]);
 
-  return <>{loading ? "Loading..." : <ItemDetail item={item.id} />}</>;
+  return <>{loading ? "Loading..." : <ItemDetail item={item} />}</>;
 };
 export default ItemDetailContainer;

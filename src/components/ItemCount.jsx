@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 import "./styles/itemCount.css";
 
-const ItemCount = ({ stocks, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onConfirmation }) => {
   const [count, setCount] = useState(initial);
 
   const increase = () => {
-    if (count < stocks) {
+    if (count < stock) {
       setCount(count + 1);
     }
   };
@@ -17,7 +17,13 @@ const ItemCount = ({ stocks, initial, onAdd }) => {
     }
   };
 
-  onAdd(count);
+  const confirmHandler = () => {
+    if (onConfirmation.onAdd) {
+      onConfirmation.onAdd(count);
+    } else {
+      onConfirmation.onEdit(count);
+    }
+  };
 
   return (
     <div className="contador">
@@ -34,11 +40,15 @@ const ItemCount = ({ stocks, initial, onAdd }) => {
         <button
           className="btn btn-info"
           onClick={increase}
-          disabled={count === stocks}
+          disabled={count === stock}
         >
           +
         </button>
-        <button type="button" className="btn btn-light" onClick={onAdd}>
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={confirmHandler}
+        >
           Agregar al carrito
         </button>
       </div>

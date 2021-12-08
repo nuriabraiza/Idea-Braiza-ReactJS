@@ -4,10 +4,10 @@ import CartDetail from "./CartDetail";
 import Checkout from "./Checkout";
 
 function CartDetailContainer({ cart }) {
-  const [removeBox, setRemoveBox] = useState(false);
+  const [remove, setRemove] = useState(false);
   const [checkout, setCheckout] = useState(false);
 
-  const { clearCart } = useCart();
+  const { clear } = useCart();
 
   const toggleCheckout = () => setCheckout(!checkout);
 
@@ -25,7 +25,7 @@ function CartDetailContainer({ cart }) {
           <span>Precio Total: </span>${" "}
           {cart.reduce((acum, item) => acum + item.price * item.qty, 0)}
         </div>
-        <button className="removeBtn" onClick={() => setRemoveBox(true)}>
+        <button className="removeBtn" onClick={() => setRemove(true)}>
           Vaciar Carrito
         </button>
       </header>

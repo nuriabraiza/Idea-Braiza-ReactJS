@@ -10,7 +10,7 @@ import {
   increment,
 } from "firebase/firestore";
 
-function Checkout({ close }) {
+function Checkout({ end }) {
   const { user, preference } = useAuth();
   const { cart, clearCart } = useCart();
 
@@ -21,25 +21,25 @@ function Checkout({ close }) {
   });
 
   const [newOrder, setNewOrder] = useState(null);
-  const [popUpBox, setPopUpBox] = useState(false);
+  const [popUp, setPopUp] = useState(false);
 
   const inputHandler = (e) => {
     setFormFields({ ...formFields, [e.target.name]: e.target.value });
   };
   const confirmHandler = (e) => {
     e.preventDefault();
-    setPopUpBox(true);
+    setPopUp(true);
   };
   const closeHandler = () => {
     if (newOrder) {
       clearCart();
-      close();
+      end();
     } else {
-      close();
+      end();
     }
   };
 
-  const buy = () => {
+  const purchase = () => {
     const items = cart.map((i) => {
       return {
         id: i.id,
@@ -74,13 +74,9 @@ function Checkout({ close }) {
   };
 
   return (
-    <div className="bkg-Checkout">
-      <form
-        className={`Checkout ${
-          preference.theme === "light" ? "dark" : "light"
-        }`}
-      >
-        <i onClick={closeHandler} className="exitIcn far fa-times-circle"></i>
+    <div className="checkout">
+      <form>
+        <i onClick={closeHandler} className="fa-times-circle"></i>
         {!newOrder && (
           <>
             <h3>Confirma tus datos</h3>
@@ -113,7 +109,11 @@ function Checkout({ close }) {
               />
             </div>
 
-            <button onClick={confirmHandler} className="addBtn">
+            <button
+              onClick={confirmHandler}
+              actionBtn={purchase}
+              className="addBtn"
+            >
               Confirmar
             </button>
           </>
