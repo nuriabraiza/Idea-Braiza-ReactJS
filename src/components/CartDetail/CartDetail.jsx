@@ -26,7 +26,7 @@ function CartDetail({ item }) {
           <span>Cantidad Elegida:</span> {item.qty}
         </p>
         <p className="cartInfo-detail">
-          <span>Precio Unitario:</span> USD {item.precio}
+          <span>Precio Unitario:</span> ${item.precio}
         </p>
       </div>
 

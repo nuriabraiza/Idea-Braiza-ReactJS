@@ -22,8 +22,8 @@ function CartDetailContainer({ cart }) {
           {cart.reduce((acum, item) => acum + item.qty, 0)}
         </div>
         <div className="cartPrice">
-          <span>Precio Total: </span>USD{" "}
-          {cart.reduce((acum, item) => acum + item.price * item.qty, 0)}
+          <span>Precio Total: </span>${" "}
+          {cart.reduce((acum, item) => acum + item.precio * item.qty, 0)}
         </div>
         <button
           className="removeBtn"
