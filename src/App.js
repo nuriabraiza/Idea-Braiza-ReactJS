@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Navbar from "./components/NavBar";
-import Home from "./components/Home";
-import Servicios from "./components/Servicios";
-import ItemDetailContainer from "./components/ItemDetailContainer";
+import Navbar from "./components/NavBar/NavBar";
+import Home from "./components/Home/Home";
+import Servicios from "./components/Servicios/Servicios";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartProvider } from "./context/CartContext";
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -16,10 +16,10 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/category/:category">
+          <Route path="/category/:id">
             <Servicios />
           </Route>
-          <Route path="/item/:id">
+          <Route path="/items/:id">
             <ItemDetailContainer />
           </Route>
           <Route exact path="/cart">

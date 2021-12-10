@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
-import { getFirestore } from "../firebase";
+import { useEffect, useState } from "react";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router";
+import { getFirestore } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 
-const ItemDetailContainer = () => {
-  const [item, setItem] = useState([]);
+function ItemDetailContainer() {
+  const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
@@ -24,6 +24,14 @@ const ItemDetailContainer = () => {
     });
   }, [id]);
 
-  return <>{loading ? "Loading..." : <ItemDetail item={item} />}</>;
-};
+  console.log(id);
+
+  return (
+    <section className="ItemDetailContainer">
+      {item && <ItemDetail item={item} key={id} />}
+      {loading && <h4>Loading...</h4>}
+    </section>
+  );
+}
+
 export default ItemDetailContainer;

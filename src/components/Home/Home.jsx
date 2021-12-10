@@ -1,5 +1,5 @@
-import logoxl from "../img/logoxl.png";
-import ItemListContainer from "./ItemListContainer";
+import logoxl from "../../images/logoxl.png";
+import { NavLink } from "react-router-dom";
 
 const Home = () => (
   <div className="intro">
@@ -17,7 +17,9 @@ const Home = () => (
       y comunicar su esencia y valores, logrando así destacarla en el mundo
       digital.
     </h4>
-    <ItemListContainer />
+    <NavLink to={`/category/servicios`} className="Item">
+      <button className="btn btn-info">Ir a Servicios</button>
+    </NavLink>
   </div>
 );
 

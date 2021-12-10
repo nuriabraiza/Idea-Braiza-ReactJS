@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useAuth } from "../context/AuthenticatorContext";
-import { useCart } from "../context/CartContext";
-import { getFirestore } from "../firebase";
+import { useCart } from "../../context/CartContext";
+import { getFirestore } from "../../firebase";
 import {
   collection,
   addDoc,
@@ -10,36 +9,31 @@ import {
   increment,
 } from "firebase/firestore";
 
-function Checkout({ end }) {
-  const { user, preference } = useAuth();
+function Checkout({ close }) {
   const { cart, clearCart } = useCart();
 
-  const [formFields, setFormFields] = useState({
-    name: user ? `${user.name} ${user.lastName}` : "",
-    tel: user && user.tel ? `${user.tel}` : "",
-    mail: user && user.mail ? `${user.mail}` : "",
-  });
+  const [formFields, setFormFields] = useState({});
 
   const [newOrder, setNewOrder] = useState(null);
-  const [popUp, setPopUp] = useState(false);
+  const [popUpBox, setPopUpBox] = useState(false);
 
   const inputHandler = (e) => {
     setFormFields({ ...formFields, [e.target.name]: e.target.value });
   };
   const confirmHandler = (e) => {
     e.preventDefault();
-    setPopUp(true);
+    setPopUpBox(true);
   };
   const closeHandler = () => {
     if (newOrder) {
       clearCart();
-      end();
+      close();
     } else {
-      end();
+      close();
     }
   };
 
-  const purchase = () => {
+  const buy = () => {
     const items = cart.map((i) => {
       return {
         id: i.id,
@@ -74,9 +68,9 @@ function Checkout({ end }) {
   };
 
   return (
-    <div className="checkout">
-      <form>
-        <i onClick={closeHandler} className="fa-times-circle"></i>
+    <div className="bkg-Checkout">
+      <form className="checkout">
+        <i onClick={closeHandler} className="exitIcn far fa-times-circle"></i>
         {!newOrder && (
           <>
             <h3>Confirma tus datos</h3>
@@ -111,8 +105,9 @@ function Checkout({ end }) {
 
             <button
               onClick={confirmHandler}
-              actionBtn={purchase}
               className="addBtn"
+              actionBtn={buy}
+              box={{ removeBox: popUpBox, setRemoveBox: setPopUpBox }}
             >
               Confirmar
             </button>

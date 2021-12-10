@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useCart } from "../context/CartContext";
-import CartDetail from "./CartDetail";
-import Checkout from "./Checkout";
+import { useCart } from "../../context/CartContext";
+import CartDetail from "../CartDetail/CartDetail";
+import Checkout from "../Checkout/Checkout";
 
 function CartDetailContainer({ cart }) {
-  const [remove, setRemove] = useState(false);
+  const [removeBox, setRemoveBox] = useState(false);
   const [checkout, setCheckout] = useState(false);
 
-  const { clear } = useCart();
+  const { clearCart } = useCart();
 
   const toggleCheckout = () => setCheckout(!checkout);
 
@@ -22,10 +22,15 @@ function CartDetailContainer({ cart }) {
           {cart.reduce((acum, item) => acum + item.qty, 0)}
         </div>
         <div className="cartPrice">
-          <span>Precio Total: </span>${" "}
+          <span>Precio Total: </span>USD{" "}
           {cart.reduce((acum, item) => acum + item.price * item.qty, 0)}
         </div>
-        <button className="removeBtn" onClick={() => setRemove(true)}>
+        <button
+          className="removeBtn"
+          onClick={() => setRemoveBox(true)}
+          box={{ removeBox, setRemoveBox }}
+          actionBtn={clearCart}
+        >
           Vaciar Carrito
         </button>
       </header>

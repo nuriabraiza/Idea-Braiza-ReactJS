@@ -1,5 +1,5 @@
-import logoxl from "../img/logoxl.png";
-import ItemListContainer from "./ItemListContainer";
+import logoxl from "../../images/logoxl.png";
+import ItemListContainer from "../ItemListContainer/ItemListContainer";
 
 const Servicios = () => (
   <div className="intro">
