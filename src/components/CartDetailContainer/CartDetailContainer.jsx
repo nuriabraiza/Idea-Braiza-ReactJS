@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import CartDetail from "../CartDetail/CartDetail";
 import Checkout from "../Checkout/Checkout";
+import "./cDetailC.css";
 
 function CartDetailContainer({ cart }) {
   const [removeBox, setRemoveBox] = useState(false);
@@ -13,9 +14,6 @@ function CartDetailContainer({ cart }) {
 
   return (
     <section className="CartDetailContainer">
-      <button onClick={toggleCheckout}>Finalizar Compra</button>
-      {checkout && <Checkout close={toggleCheckout} />}
-
       <header className="cartTop">
         <div className="cartCount">
           <span>Cantidad de Productos: </span>
@@ -26,7 +24,7 @@ function CartDetailContainer({ cart }) {
           {cart.reduce((acum, item) => acum + item.precio * item.qty, 0)}
         </div>
         <button
-          className="removeBtn"
+          className="removeBtn btn btn-danger"
           onClick={() => setRemoveBox(true)}
           box={{ removeBox, setRemoveBox }}
           actionBtn={clearCart}
@@ -38,6 +36,11 @@ function CartDetailContainer({ cart }) {
       {cart.map((item, i) => (
         <CartDetail key={`${item.id}-${i}`} item={item} />
       ))}
+
+      <button className="btn btn-info finalizar" onClick={toggleCheckout}>
+        Finalizar Compra
+      </button>
+      {checkout && <Checkout close={toggleCheckout} />}
     </section>
   );
 }

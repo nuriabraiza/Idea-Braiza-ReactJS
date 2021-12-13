@@ -1,0 +1,38 @@
+.countSection {
+  background-color: #fff;
+}
+
+.btn-info {
+  background-color: lightblue;
+  color: rgb(78, 78, 78);
+  font-weight: bolder;
+}
+
+.btn-danger {
+  background-color: rgb(238, 173, 173);
+  color: rgb(78, 78, 78);
+  font-weight: bolder;
+}
+
+.countButtons {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+}
+
+td {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.form-control {
+  width: 2cm;
+  text-align: center;
+}
+
+.addBtn {
+  margin-top: 1cm;
+  border: 1px solid rgb(78, 78, 78);
+  margin-bottom: 0.5cm;
+}

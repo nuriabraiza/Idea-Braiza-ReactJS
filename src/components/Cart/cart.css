@@ -1,0 +1,19 @@
+.vacio {
+  text-align: center;
+}
+
+article {
+  margin-top: 1cm;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(78, 78, 78);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.btn-info {
+  background-color: lightblue;
+  color: rgb(78, 78, 78);
+  font-weight: bolder;
+  margin-top: 0.5cm;
+  font-weight: 400;
+}

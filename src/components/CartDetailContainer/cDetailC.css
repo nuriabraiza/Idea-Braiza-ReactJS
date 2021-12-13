@@ -1,0 +1,55 @@
+#root {
+  background-color: #fff;
+}
+
+.CartDetailContainer {
+  width: 100%;
+  margin-top: 2cm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(78, 78, 78);
+  border: 1px solid var(--accent-font-color);
+  background-color: #fff;
+}
+
+.cartCount {
+  background-color: #fff;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(78, 78, 78);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.cartTop {
+  width: 60%;
+  padding: 10px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1px solid var(--accent-font-color);
+}
+
+.cartPrice {
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(78, 78, 78);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media (min-width: 769px) {
+  .cartTop {
+    flex-direction: row;
+  }
+}
+
+.finalizar {
+  margin-bottom: 5cm;
+}

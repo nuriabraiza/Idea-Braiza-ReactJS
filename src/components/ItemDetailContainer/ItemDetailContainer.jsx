@@ -3,6 +3,8 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router";
 import { getFirestore } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
+import logoxl from "../../images/logoxl.png";
+import "./detailC.css";
 
 function ItemDetailContainer() {
   const [item, setItem] = useState(null);
@@ -27,10 +29,13 @@ function ItemDetailContainer() {
   console.log(id);
 
   return (
-    <section className="ItemDetailContainer">
-      {item && <ItemDetail item={item} key={id} />}
-      {loading && <h4>Loading...</h4>}
-    </section>
+    <div className="container-detail">
+      <img src={logoxl} alt="logo" />
+      <section className="detail">
+        {item && <ItemDetail item={item} key={id} />}
+        {loading && <h4>Loading...</h4>}
+      </section>
+    </div>
   );
 }
 

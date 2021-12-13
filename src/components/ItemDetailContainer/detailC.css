@@ -1,0 +1,10 @@
+.container-detail {
+  text-align: center;
+  margin-top: 1cm;
+}
+
+.detail {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

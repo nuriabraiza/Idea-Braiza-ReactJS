@@ -1,0 +1,26 @@
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #737373;
+  justify-content: flex-start;
+}
+
+.container {
+  display: flex;
+  background-color: white;
+  margin-left: 6cm;
+  justify-content: left;
+  justify-items: left;
+  justify-self: left;
+}
+
+.nav-item {
+  background-color: white;
+  font-size: large;
+  text-align: center;
+}
+
+.nav-link {
+  background-color: white;
+  color: #737373;
+  font-weight: 500;
+}

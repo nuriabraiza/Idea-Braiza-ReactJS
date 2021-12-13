@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./count.css";
 
 function ItemCount({ stock, initial, onConfirm }) {
   const [counter, setCounter] = useState(initial || 1);
@@ -25,12 +26,18 @@ function ItemCount({ stock, initial, onConfirm }) {
     <div className="ItemCount">
       <section className="countSection">
         <div className="countButtons">
-          <button onClick={decrease}>-</button>
-          <input readOnly value={counter} />
-          <button onClick={increase}>+</button>
+          <td>
+            <button className="btn btn-danger" onClick={decrease}>
+              -
+            </button>
+            <input className="form-control" readOnly value={counter} />
+            <button className="btn btn-info" onClick={increase}>
+              +
+            </button>
+          </td>
         </div>
 
-        <button className="addBtn" onClick={confirmHandler}>
+        <button className="addBtn btn btn-info" onClick={confirmHandler}>
           Confirmar
         </button>
       </section>

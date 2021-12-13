@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCart } from "../../context/CartContext.jsx";
 import ItemCount from "../ItemCount/ItemCount";
+import "./detail.css";
 
 function ItemDetail({ item }) {
   const [added, setAdded] = useState(false);
@@ -25,16 +26,16 @@ function ItemDetail({ item }) {
         alt={item.nombre}
       />
       <div className="card-body body">
-        <h3 className="card-title">{item.nombre}</h3>
-        <h4 className="card-text text">{item.descripcion}</h4>
+        <h5 className="card-title">{item.nombre}</h5>
+        <p className="card-text text">{item.descripcion}</p>
         <span className="card-text price">${item.precio}</span>
       </div>
 
       {!added ? (
         <ItemCount initial={1} stock={5} onConfirm={{ onAdd: onAdd }} />
       ) : (
-        <NavLink to="/cart">
-          <button className="addBtn">Terminar Compra</button>
+        <NavLink className="terminar" to="/cart">
+          <button className="addBtn btn btn-info">Terminar Compra</button>
         </NavLink>
       )}
     </div>

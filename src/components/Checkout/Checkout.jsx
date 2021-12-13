@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import { getFirestore } from "../../firebase";
+import "./checkout.css";
 import {
   collection,
   addDoc,
@@ -103,19 +104,14 @@ function Checkout({ close }) {
               />
             </div>
 
-            <button
-              onClick={confirmHandler}
-              className="addBtn"
-              actionBtn={buy}
-              box={{ removeBox: popUpBox, setRemoveBox: setPopUpBox }}
-            >
+            <button onClick={confirmHandler} className="addBtn" actionBtn={buy}>
               Confirmar
             </button>
           </>
         )}
         {newOrder && (
           <>
-            <h3>Gracias por tu compra, {formFields.name}!</h3>
+            <h3>Gracias por tu compra{formFields.name}!</h3>
 
             <div className="inputContainer">
               <p>

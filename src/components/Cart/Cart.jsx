@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import CartDetailContainer from "../CartDetailContainer/CartDetailContainer";
+import logoxl from "../../images/logoxl.png";
+import "./cart.css";
 
 function Cart() {
   const { cart } = useCart();
@@ -8,15 +10,17 @@ function Cart() {
   return (
     <div className="Cart">
       {cart.length === 0 ? (
-        <section className="EmptyCart">
+        <section className="vacio">
+          <img src={logoxl} alt="logo" />
           <div className="emptMsg">
-            <i className="fas fa-shopping-cart"></i>
             <article>
               Todavía no has agregado ningún producto a tu carrito
             </article>
           </div>
           <NavLink className="redirect" to="/category/items">
-            Mira lo que tenemos para ofrecerte!
+            <button className="btn btn-info">
+              Mira lo que tenemos para ofrecerte!
+            </button>
           </NavLink>
         </section>
       ) : (

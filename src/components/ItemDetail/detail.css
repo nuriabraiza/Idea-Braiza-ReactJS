@@ -1,0 +1,40 @@
+.card {
+  width: 25rem;
+  background-color: #fff;
+  border: 1px solid rgb(78, 78, 78);
+  padding: 0.2cm;
+  margin-bottom: 2cm;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  justify-content: center;
+}
+
+.card-body {
+  font-weight: bold;
+  background-color: #fff;
+}
+
+h5 {
+  font-weight: bold;
+  background-color: #fff;
+  font-size: 22px;
+  margin-top: 0.5cm;
+}
+
+p {
+  margin-top: 0.3cm;
+  background-color: #fff;
+}
+
+span {
+  background-color: #fff;
+}
+
+.terminar {
+  background-color: #fff;
+}
+.addBtn {
+  margin-top: 1cm;
+  border: 1px solid rgb(78, 78, 78);
+  margin-bottom: 0.5cm;
+}

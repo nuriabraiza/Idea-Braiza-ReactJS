@@ -1,5 +1,6 @@
 import logoxl from "../../images/logoxl.png";
 import ItemListContainer from "../ItemListContainer/ItemListContainer";
+import "./servicios.css";
 
 const Servicios = () => (
   <div className="intro">

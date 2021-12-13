@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
+import "./cartD.css";
 
 function CartDetail({ item }) {
   const [removeBox, setRemoveBox] = useState(false);
@@ -16,9 +17,8 @@ function CartDetail({ item }) {
   }
   return (
     <article className="CartDetail">
-      <div className="cart-imgContainer">
-        <img src={item.img} alt={item.nombre} />
-      </div>
+      <img src={item.img} alt={item.nombre} />
+
       <div className="cartInfo">
         <h3 className="cartInfo-title">{item.nombre}</h3>
         <br />
@@ -37,7 +37,7 @@ function CartDetail({ item }) {
           onConfirm={{ onEdit: addToCartHandler }}
         />
         <button
-          className="removeBtn"
+          className="removeBtn btn btn-danger"
           style={{ marginTop: "5px" }}
           onClick={() => setRemoveBox(true)}
           box={{ removeBox, setRemoveBox }}
