@@ -104,7 +104,12 @@ function Checkout({ close }) {
               />
             </div>
 
-            <button onClick={confirmHandler} className="addBtn" actionBtn={buy}>
+            <button
+              onClick={confirmHandler}
+              className="addBtn"
+              actionBtn={buy}
+              box={{ removeBox: popUpBox, setRemoveBox: setPopUpBox }}
+            >
               Confirmar
             </button>
           </>
