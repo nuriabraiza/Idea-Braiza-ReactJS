@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import CartDetail from "../CartDetail/CartDetail";
 import Checkout from "../Checkout/Checkout";
+import Confirm from "../Confirm/Confirm";
 import "./cDetailC.css";
 
 function CartDetailContainer({ cart }) {
@@ -26,18 +27,23 @@ function CartDetailContainer({ cart }) {
         <button
           className="removeBtn btn btn-danger"
           onClick={() => setRemoveBox(true)}
-          box={{ removeBox, setRemoveBox }}
-          actionBtn={clearCart}
         >
           Vaciar Carrito
         </button>
+
+        <Confirm box={{ removeBox, setRemoveBox }} actionBtn={clearCart}>
+          <p>
+            Desea eliminar los items de su
+            <span>tu carrito</span>
+          </p>
+        </Confirm>
       </header>
 
       {cart.map((item, i) => (
         <CartDetail key={`${item.id}-${i}`} item={item} />
       ))}
 
-      <button className="btn btn-info finalizar" onClick={toggleCheckout}>
+      <button className="btn btn-info end" onClick={toggleCheckout}>
         Finalizar Compra
       </button>
       {checkout && <Checkout close={toggleCheckout} />}

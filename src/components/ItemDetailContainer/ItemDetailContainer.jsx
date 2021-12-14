@@ -14,9 +14,9 @@ function ItemDetailContainer() {
   useEffect(() => {
     const db = getFirestore();
 
-    const dataBase = doc(db, "items", id);
+    const itemBase = doc(db, "items", id);
 
-    getDoc(dataBase).then((snapshot) => {
+    getDoc(itemBase).then((snapshot) => {
       if (snapshot.exists()) {
         setItem({ ...snapshot.data(), id });
         setLoading(false);
@@ -25,8 +25,6 @@ function ItemDetailContainer() {
       }
     });
   }, [id]);
-
-  console.log(id);
 
   return (
     <div className="container-detail">

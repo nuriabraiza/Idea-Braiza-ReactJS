@@ -1,6 +1,8 @@
 import { useState } from "react";
+import logoxl from "../../images/logoxl.png";
 import { useCart } from "../../context/CartContext";
 import { getFirestore } from "../../firebase";
+import Confirm from "../Confirm/Confirm";
 import "./checkout.css";
 import {
   collection,
@@ -51,7 +53,7 @@ function Checkout({ close }) {
         phone: formFields.tel,
         email: formFields.mail,
       },
-      items,
+      items: cart,
       total: cart.reduce((acum, item) => acum + item.price * item.qty, 0),
     };
 
@@ -76,7 +78,7 @@ function Checkout({ close }) {
           <>
             <h3>Confirma tus datos</h3>
 
-            <div className="inputContainer">
+            <div className="inputContainer1">
               <label>Nombre y Apellido</label>
               <input
                 name="name"
@@ -85,7 +87,7 @@ function Checkout({ close }) {
                 onChange={inputHandler}
               />
             </div>
-            <div className="inputContainer">
+            <div className="inputContainer2">
               <label>Teléfono</label>
               <input
                 name="tel"
@@ -94,7 +96,7 @@ function Checkout({ close }) {
                 onChange={inputHandler}
               />
             </div>
-            <div className="inputContainer">
+            <div className="inputContainer3">
               <label>Email</label>
               <input
                 name="mail"
@@ -104,25 +106,24 @@ function Checkout({ close }) {
               />
             </div>
 
-            <button
-              onClick={confirmHandler}
-              className="addBtn"
+            <Confirm
               actionBtn={buy}
               box={{ removeBox: popUpBox, setRemoveBox: setPopUpBox }}
-            >
-              Confirmar
-            </button>
+            ></Confirm>
           </>
         )}
         {newOrder && (
           <>
-            <h3>Gracias por tu compra{formFields.name}!</h3>
+            <div className="compra">
+              <img src={logoxl} alt="logo" />
+              <h3>Gracias por tu compra {formFields.name}!</h3>
 
-            <div className="inputContainer">
-              <p>
-                Ya hemos procesado tu pedido bajo el numero de orden{" "}
-                <span>{newOrder}</span>
-              </p>
+              <div className="inputContainer">
+                <p>
+                  Ya hemos procesado tu pedido bajo el numero de orden{" "}
+                  <span>{newOrder}</span>
+                </p>
+              </div>
             </div>
           </>
         )}

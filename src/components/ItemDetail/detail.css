@@ -33,8 +33,12 @@ span {
 .terminar {
   background-color: #fff;
 }
-.addBtn {
+.compraBtn {
   margin-top: 1cm;
   border: 1px solid rgb(78, 78, 78);
   margin-bottom: 0.5cm;
+}
+
+.botones {
+  background-color: #fff;
 }

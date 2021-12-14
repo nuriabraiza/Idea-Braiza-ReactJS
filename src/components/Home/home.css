@@ -5,7 +5,7 @@
 }
 
 .intro {
-  margin-top: 2cm;
+  padding-top: 2cm;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   color: rgb(78, 78, 78);
@@ -14,6 +14,6 @@
 .btn-info {
   background-color: lightblue;
   color: rgb(78, 78, 78);
-  font-weight: bolder;
+  font-weight: bold;
   margin-top: 0.5cm;
 }

@@ -27,6 +27,7 @@ function ItemDetail({ item }) {
       />
       <div className="card-body body">
         <h5 className="card-title">{item.nombre}</h5>
+
         <p className="card-text text">{item.descripcion}</p>
         <span className="card-text price">${item.precio}</span>
       </div>
@@ -34,9 +35,14 @@ function ItemDetail({ item }) {
       {!added ? (
         <ItemCount initial={1} stock={5} onConfirm={{ onAdd: onAdd }} />
       ) : (
-        <NavLink className="terminar" to="/cart">
-          <button className="addBtn btn btn-info">Terminar Compra</button>
-        </NavLink>
+        <div className="botones">
+          <NavLink className="terminar" to="/cart">
+            <button className="addBtn btn btn-info">Terminar Compra</button>
+          </NavLink>
+          <NavLink className="continuar" to="/category/servicios">
+            <button className="addBtn btn btn-info">Seguir Comprando</button>
+          </NavLink>
+        </div>
       )}
     </div>
   );
