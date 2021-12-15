@@ -10,7 +10,11 @@ function Item({ item }) {
           <h5 className="card-title">{item.nombre}</h5>
           <p className="card-text">${item.precio}</p>
 
-          <NavLink className="btn btn-info" to={`/items/${item.id}`}>
+          <NavLink
+            className="btn btn-info"
+            to={`/items/${item.id}`}
+            key={item.id}
+          >
             {" "}
             Ver más
           </NavLink>

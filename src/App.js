@@ -16,10 +16,10 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/category/:id">
+          <Route path="/category/servicios">
             <Servicios />
           </Route>
-          <Route path="/items/:itemId">
+          <Route path="/items/:id">
             <ItemDetailContainer />
           </Route>
           <Route exact path="/cart">
