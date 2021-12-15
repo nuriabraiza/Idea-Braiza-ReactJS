@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import ItemCount from "../ItemCount/ItemCount";
+import Confirm3 from "../Confirm/Confirm3";
 import "./cartD.css";
 
 function CartDetail({ item }) {
@@ -36,15 +37,10 @@ function CartDetail({ item }) {
           stock={item.stock}
           onConfirm={{ onEdit: addToCartHandler }}
         />
-        <button
-          className="removeBtn btn btn-danger"
-          style={{ marginTop: "5px" }}
-          onClick={() => setRemoveBox(true)}
+        <Confirm3
           box={{ removeBox, setRemoveBox }}
           actionBtn={() => removeItem(item.id)}
-        >
-          Eliminar
-        </button>
+        ></Confirm3>
       </div>
     </article>
   );

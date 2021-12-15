@@ -9,8 +9,10 @@ function Item({ item }) {
         <div className="card-body">
           <h5 className="card-title">{item.nombre}</h5>
           <p className="card-text">${item.precio}</p>
-          <NavLink to={`/item/${item.id}`}>
-            <button className="btn btn-info"> Ver más</button>
+
+          <NavLink className="btn btn-info" to={`/items/${item.id}`}>
+            {" "}
+            Ver más
           </NavLink>
         </div>
       </div>

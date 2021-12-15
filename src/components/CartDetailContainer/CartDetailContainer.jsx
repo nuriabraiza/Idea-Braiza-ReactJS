@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import CartDetail from "../CartDetail/CartDetail";
 import Checkout from "../Checkout/Checkout";
-import Confirm from "../Confirm/Confirm";
+import Confirm2 from "../Confirm/Confirm2";
 import "./cDetailC.css";
 
 function CartDetailContainer({ cart }) {
@@ -24,19 +24,11 @@ function CartDetailContainer({ cart }) {
           <span>Precio Total: </span>${" "}
           {cart.reduce((acum, item) => acum + item.precio * item.qty, 0)}
         </div>
-        <button
-          className="removeBtn btn btn-danger"
-          onClick={() => setRemoveBox(true)}
-        >
-          Vaciar Carrito
-        </button>
 
-        <Confirm box={{ removeBox, setRemoveBox }} actionBtn={clearCart}>
-          <p>
-            Desea eliminar los items de su
-            <span>tu carrito</span>
-          </p>
-        </Confirm>
+        <Confirm2
+          box={{ removeBox, setRemoveBox }}
+          actionBtn={clearCart}
+        ></Confirm2>
       </header>
 
       {cart.map((item, i) => (

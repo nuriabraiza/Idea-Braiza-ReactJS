@@ -9,28 +9,29 @@ import "./detailC.css";
 function ItemDetailContainer() {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
+  const { itemId } = useParams();
 
   useEffect(() => {
     const db = getFirestore();
 
-    const itemBase = doc(db, "items", id);
-
+    const itemBase = doc(db, "items", itemId);
+    console.log(itemBase);
     getDoc(itemBase).then((snapshot) => {
       if (snapshot.exists()) {
-        setItem({ ...snapshot.data(), id });
+        console.log(snapshot.data);
+        setItem(snapshot.data(), itemId);
         setLoading(false);
       } else {
         setLoading(false);
       }
     });
-  }, [id]);
+  }, [itemId]);
 
   return (
     <div className="container-detail">
       <img src={logoxl} alt="logo" />
       <section className="detail">
-        {item && <ItemDetail item={item} key={id} />}
+        {item && <ItemDetail item={item} key={itemId} />}
         {loading && <h4>Loading...</h4>}
       </section>
     </div>

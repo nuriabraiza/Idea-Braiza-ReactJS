@@ -18,6 +18,7 @@
   display: flex;
   justify-content: space-around;
   background-color: #fff;
+  text-align: center;
 }
 
 td {
@@ -35,4 +36,9 @@ td {
   margin-top: 1cm;
   border: 1px solid rgb(78, 78, 78);
   margin-bottom: 0.5cm;
+  text-align: center;
+}
+
+.countSection {
+  text-align: center;
 }

@@ -33,7 +33,7 @@ function ItemDetail({ item }) {
       </div>
 
       {!added ? (
-        <ItemCount initial={1} stock={5} onConfirm={{ onAdd: onAdd }} />
+        <ItemCount initial={1} stock={10} onConfirm={{ onAdd: onAdd }} />
       ) : (
         <div className="botones">
           <NavLink className="terminar" to="/cart">
