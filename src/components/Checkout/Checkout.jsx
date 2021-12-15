@@ -62,12 +62,6 @@ function Checkout({ close }) {
     const ordersCollection = collection(db, "orders");
 
     addDoc(ordersCollection, order).then(({ id }) => setNewOrder(id));
-
-    cart.forEach((i) => {
-      const productInBase = doc(db, "items", i.id);
-
-      updateDoc(productInBase, { stock: increment(-i.qty) });
-    });
   };
 
   return (

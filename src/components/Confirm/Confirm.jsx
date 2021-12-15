@@ -17,7 +17,7 @@ function Confirm({ children, actionBtn, box }) {
     <div className="finalizar" onClick={() => box.setRemoveBox(false)}>
       <div className="confirmMsg" onClick={(e) => e.stopPropagation()}>
         {children}
-        <button className="confirmBtn btn btn-info" onClick={actionHandler}>
+        <button className="deleteBtn btn btn-info" onClick={actionHandler}>
           Confirmar
         </button>
         <button className="returnBtn btn btn-danger" onClick={returnHandler}>
