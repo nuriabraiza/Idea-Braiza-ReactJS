@@ -33,7 +33,6 @@ function ItemDetailContainer() {
       <section className="detail">
         {item && <ItemDetail item={item} />}
         {loading && <h4>Loading...</h4>}
-        {id}
       </section>
     </div>
   );
