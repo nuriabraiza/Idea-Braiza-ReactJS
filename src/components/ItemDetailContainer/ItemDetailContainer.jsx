@@ -15,7 +15,7 @@ function ItemDetailContainer() {
     const db = getFirestore();
 
     const itemBase = doc(db, "items", id);
-    console.log(itemBase);
+
     getDoc(itemBase).then((snapshot) => {
       if (snapshot.exists()) {
         console.log(snapshot.data);
